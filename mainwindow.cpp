@@ -18,30 +18,46 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::on_pushButtonLogin_clicked()
-{
-    QString username = ui->lineEditUsername->text().trimmed();
-    QString password = ui->lineEditPassword->text().trimmed();
+    {
+        QString username = ui->lineEditUsername->text().trimmed();
+        QString password = ui->lineEditPassword->text().trimmed();
 
-    if (username.isEmpty() || password.isEmpty()) {
-        ui->labelStatus->setStyleSheet("color: red;");
-        ui->labelStatus->setText("Por favor ingresa usuario y contraseña.");
-        return;
-    }
+        if (username.isEmpty() || password.isEmpty()) {
+            ui->labelStatus->setStyleSheet("color: red;");
+            ui->labelStatus->setText("Por favor ingresa usuario y contraseña.");
+            return;
+        }
 
-    if (m_db->checkUserPassword(username, password)) {
+        // Verificar usuario/contraseña en la base de datos
+        if (!m_db->checkUserPassword(username, password)) {
+            ui->labelStatus->setStyleSheet("color: red;");
+            ui->labelStatus->setText("Usuario o contraseña incorrectos.");
+            return;
+        }
+
+        // Login correcto
         ui->labelStatus->setStyleSheet("color: green;");
         ui->labelStatus->setText("Login correcto. Bienvenido " + username + ".");
 
-        if (!m_deviceWindow) {
-            m_deviceWindow = new DeviceWindow(m_db, this);
+        // Obtener el userId real de este usuario
+        int userId = m_db->getUserId(username);
+        if (userId < 0) {
+            ui->labelStatus->setStyleSheet("color: red;");
+            ui->labelStatus->setText("Error obteniendo el ID del usuario.");
+            return;
         }
+
+        // Crear la ventana de dispositivos si aún no existe
+        if (!m_deviceWindow) {
+            m_deviceWindow = new DeviceWindow(m_db, userId, this);
+        }
+
         m_deviceWindow->show();
         this->hide();
-    } else {
-        ui->labelStatus->setStyleSheet("color: red;");
-        ui->labelStatus->setText("Usuario o contraseña incorrectos.");
     }
-}
+
+
+
 
 void MainWindow::on_pushButtonRegister_clicked()
 {

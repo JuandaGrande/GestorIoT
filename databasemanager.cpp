@@ -100,6 +100,21 @@ bool DatabaseManager::insertDevice(const DeviceRecord &device)
     return query.exec();
 }
 
+int DatabaseManager::getUserId(const QString &username)
+{
+    QSqlQuery query;
+    query.prepare("SELECT userId FROM users WHERE username = :u");
+    query.bindValue(":u", username);
+    if (!query.exec())
+        return -1;
+
+    if (query.next())
+        return query.value(0).toInt();
+
+    return -1;
+}
+
+
 QVector<DeviceRecord> DatabaseManager::listDevicesForUser(int userId)
 {
     QVector<DeviceRecord> devices;
@@ -127,3 +142,45 @@ QVector<DeviceRecord> DatabaseManager::listDevicesForUser(int userId)
 
     return devices;
 }
+
+bool DatabaseManager::updateDevice(const DeviceRecord &device)
+{
+    QSqlQuery query;
+    query.prepare(
+        "UPDATE devices SET name = :name, type = :type, "
+        "ipAddress = :ip, calibration = :cal "
+        "WHERE deviceId = :id");
+    query.bindValue(":name", device.name);
+    query.bindValue(":type", device.type);
+    query.bindValue(":ip", device.ipAddress);
+    query.bindValue(":cal", device.calibration);
+    query.bindValue(":id", device.deviceId);
+    return query.exec();
+}
+
+bool DatabaseManager::deleteDevice(int deviceId)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM devices WHERE deviceId = :id");
+    query.bindValue(":id", deviceId);
+    return query.exec();
+}
+
+int DatabaseManager::getDeviceIdByNameIp(const QString &name,
+                                         const QString &ipAddress,
+                                         int userId)
+{
+    QSqlQuery query;
+    query.prepare(
+        "SELECT deviceId FROM devices "
+        "WHERE name = :name AND ipAddress = :ip AND userId = :uid");
+    query.bindValue(":name", name);
+    query.bindValue(":ip", ipAddress);
+    query.bindValue(":uid", userId);
+    if (!query.exec())
+        return -1;
+    if (query.next())
+        return query.value(0).toInt();
+    return -1;
+}
+

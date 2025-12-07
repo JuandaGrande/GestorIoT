@@ -19,12 +19,19 @@ public:
     DatabaseManager();
     bool initDatabase();
 
-    // Usuarios (por ahora solo login/register)
+    // Usuarios
     bool insertUser(const QString &username, const QString &password);
     bool checkUserPassword(const QString &username, const QString &password);
+    int  getUserId(const QString &username);
     // Dispositivos
     bool insertDevice(const DeviceRecord &device);
     QVector<DeviceRecord> listDevicesForUser(int userId);
+    bool updateDevice(const DeviceRecord &device);
+    bool deleteDevice(int deviceId);
+    int  getDeviceIdByNameIp(const QString &name,
+                            const QString &ipAddress,
+                            int userId);
+
 
 
 private:

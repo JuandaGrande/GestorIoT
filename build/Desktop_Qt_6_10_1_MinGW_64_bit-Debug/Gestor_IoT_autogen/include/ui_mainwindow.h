@@ -39,7 +39,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1013, 663);
+        MainWindow->resize(903, 663);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         lineEditUsername = new QLineEdit(centralwidget);
@@ -52,10 +52,10 @@ public:
         lineEditPassword->setEchoMode(QLineEdit::EchoMode::Password);
         pushButtonLogin = new QPushButton(centralwidget);
         pushButtonLogin->setObjectName("pushButtonLogin");
-        pushButtonLogin->setGeometry(QRect(390, 330, 80, 24));
+        pushButtonLogin->setGeometry(QRect(360, 330, 80, 24));
         pushButtonRegister = new QPushButton(centralwidget);
         pushButtonRegister->setObjectName("pushButtonRegister");
-        pushButtonRegister->setGeometry(QRect(490, 330, 80, 24));
+        pushButtonRegister->setGeometry(QRect(460, 330, 80, 24));
         label = new QLabel(centralwidget);
         label->setObjectName("label");
         label->setGeometry(QRect(360, 210, 61, 16));
@@ -64,12 +64,12 @@ public:
         label_2->setGeometry(QRect(360, 250, 61, 16));
         labelStatus = new QLabel(centralwidget);
         labelStatus->setObjectName("labelStatus");
-        labelStatus->setGeometry(QRect(360, 290, 251, 20));
+        labelStatus->setGeometry(QRect(320, 290, 251, 20));
         labelStatus->setStyleSheet(QString::fromUtf8("color: gray;"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1013, 21));
+        menubar->setGeometry(QRect(0, 0, 903, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");

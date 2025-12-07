@@ -4,7 +4,7 @@
 #include <QMainWindow>
 
 class DatabaseManager;
-class DeviceWindow;   // si ya creaste la ventana de dispositivos
+class DeviceWindow;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,8 +24,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    DatabaseManager *m_db;          // único puntero a la BD
-    DeviceWindow *m_deviceWindow = nullptr;  // opcional, para la segunda ventana
+    DatabaseManager *m_db;
+    DeviceWindow *m_deviceWindow = nullptr;
+    int m_currentUserId = -1;
 };
 
 #endif // MAINWINDOW_H
