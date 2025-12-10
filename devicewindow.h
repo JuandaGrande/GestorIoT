@@ -1,7 +1,5 @@
-#ifndef DEVICEWINDOW_H
-#define DEVICEWINDOW_H
-
 #include <QMainWindow>
+#include <QTimer>
 
 class DatabaseManager;
 
@@ -23,10 +21,12 @@ private slots:
     void on_pushButtonRemove_clicked();
     void on_pushButtonRefresh_clicked();
 
+    void onIntervalChanged(int value);
+    void onPingTimerTimeout();
+
 private:
     Ui::DeviceWindow *ui;
     DatabaseManager *m_db;
     int m_userId;
+    QTimer m_pingTimer;
 };
-
-#endif // DEVICEWINDOW_H
