@@ -36,3 +36,12 @@
 6283	17699	7870462385833517	CMakeFiles/Gestor_IoT.dir/databasemanager.cpp.obj	be05f246b3e9333
 6272	19485	7870462385716445	CMakeFiles/Gestor_IoT.dir/devicewindow.cpp.obj	d5177e7a8074807
 19485	20440	7870462517843388	Gestor_IoT.exe	19b4921b79d7844d
+39	2457	7870467476250183	Gestor_IoT_autogen/timestamp	1e23bc962a8c79ab
+39	2457	7870467476250183	Gestor_IoT_autogen/mocs_compilation.cpp	1e23bc962a8c79ab
+39	2457	7870467476250183	C:/Users/juand/OneDrive/Documentos/QTApps/Gestor_IoT/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_IoT_autogen/timestamp	1e23bc962a8c79ab
+39	2457	7870467476250183	C:/Users/juand/OneDrive/Documentos/QTApps/Gestor_IoT/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/Gestor_IoT_autogen/mocs_compilation.cpp	1e23bc962a8c79ab
+2478	10805	7870467482522266	CMakeFiles/Gestor_IoT.dir/main.cpp.obj	51f676e223dc891b
+2466	11259	7870467482401562	CMakeFiles/Gestor_IoT.dir/Gestor_IoT_autogen/mocs_compilation.cpp.obj	cabe6624168c5f73
+2486	11702	7870467482597375	CMakeFiles/Gestor_IoT.dir/mainwindow.cpp.obj	b42b53efabee2e67
+2503	13254	7870467482773561	CMakeFiles/Gestor_IoT.dir/devicewindow.cpp.obj	d5177e7a8074807
+13254	13710	7870467590279681	Gestor_IoT.exe	19b4921b79d7844d
