@@ -765,6 +765,6 @@ C:/Users/juand/OneDrive/Documentos/QTApps/Gestor_IoT/mainwindow.h
 C:/Users/juand/OneDrive/Documentos/QTApps/Gestor_IoT/databasemanager.cpp
 C:/Users/juand/OneDrive/Documentos/QTApps/Gestor_IoT/devicewindow.cpp
  uic:ui_devicewindow.h
-C:/Users/juand/OneDrive/Documentos/QTApps/Gestor_IoT/main.cpp
 C:/Users/juand/OneDrive/Documentos/QTApps/Gestor_IoT/mainwindow.cpp
  uic:ui_mainwindow.h
+C:/Users/juand/OneDrive/Documentos/QTApps/Gestor_IoT/main.cpp
